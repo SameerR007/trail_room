@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Virtual Trial Room",
+    "version": "1.0",
+    "description": "Try on clothes virtually from Amazon.",
+    "permissions": ["activeTab", "storage", "tabs", "scripting","http://127.0.0.1:5000/"],
+    "host_permissions": [
+      "https://www.amazon.com/*"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Virtual Trial Room"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.amazon.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
